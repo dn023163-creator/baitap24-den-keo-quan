@@ -1,0 +1,36 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background: linear-gradient(135deg, #0f172a, #1e293b); color: #f8fafc; min-height: 100vh; display: flex; flex-direction: column; }
+header { background: rgba(15, 23, 42, 0.92); border-bottom: 2px solid #f59e0b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+header h1 { font-size: 1.3rem; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.8px; }
+.student-badge { background: #f59e0b; color: #0f172a; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 0.95rem; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+nav { background: #1e293b; padding: 12px 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+nav a, nav button { background: #334155; color: #f8fafc; border: 1px solid #475569; padding: 9px 14px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+nav a:hover, nav button:hover { background: #f59e0b; color: #0f172a; border-color: #f59e0b; transform: translateY(-2px); }
+nav a.active, nav button.active { background: #f59e0b; color: #0f172a; border-color: #fbbf24; }
+main { flex: 1; max-width: 1100px; width: 100%; margin: 28px auto; padding: 0 20px; text-align: center; }
+.card-viewer { background: rgba(30, 41, 59, 0.9); border: 1px solid #334155; border-radius: 16px; padding: 24px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); }
+.card-viewer h2 { color: #38bdf8; margin-bottom: 8px; }
+.card-viewer p { color: #cbd5e1; margin-bottom: 16px; }
+.open-link { display: inline-block; margin-bottom: 16px; background: #2563eb; color: #fff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+.open-link:hover { background: #1d4ed8; }
+.result-frame { width: 100%; max-height: 520px; object-fit: contain; border-radius: 10px; border: 2px solid #475569; background: #0f172a; }
+.lantern-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 0 55px; }
+.status-bar { margin-bottom: 22px; padding: 8px 20px; border-radius: 20px; background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #38bdf8; font-weight: 600; }
+.status-bar.paused { background: rgba(244, 63, 94, 0.2); border-color: #f43f5e; color: #fda4af; }
+.lantern-top, .lantern-bottom { width: 260px; height: 22px; background: linear-gradient(90deg, #b45309, #f59e0b, #b45309); border-radius: 12px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.6); z-index: 10; }
+.lantern-top { margin-bottom: 25px; position: relative; }
+.lantern-top::before { content: ""; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); width: 6px; height: 25px; background: #fbbf24; }
+.lantern-bottom { margin-top: 25px; }
+.scene { width: 240px; height: 300px; perspective: 1100px; margin: 10px auto; }
+.carousel { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; }
+.lantern-face { position: absolute; width: 220px; height: 280px; left: 10px; top: 10px; border: 4px solid #f59e0b; border-radius: 12px; overflow: hidden; background: #0f172a; box-shadow: 0 0 20px rgba(251, 191, 36, 0.45); cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s; }
+.lantern-face:hover { border-color: #38bdf8; box-shadow: 0 0 28px rgba(56, 189, 248, 0.9); }
+.lantern-face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.face-label { position: absolute; bottom: 0; width: 100%; background: rgba(15, 23, 42, 0.78); color: #fbbf24; font-size: 0.85rem; font-weight: bold; padding: 6px 0; text-align: center; }
+.face-1 { transform: rotateY(0deg) translateZ(210px); }
+.face-2 { transform: rotateY(60deg) translateZ(210px); }
+.face-3 { transform: rotateY(120deg) translateZ(210px); }
+.face-4 { transform: rotateY(180deg) translateZ(210px); }
+.face-5 { transform: rotateY(240deg) translateZ(210px); }
+.face-6 { transform: rotateY(300deg) translateZ(210px); }
+footer { text-align: center; padding: 15px; background: #0f172a; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #1e293b; }

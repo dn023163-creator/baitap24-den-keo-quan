@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đèn Kéo Quân 3D - Nguyễn Thành Đạt (241A010864)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>HIỆU ỨNG JAVASCRIPT: ĐÈN KÉO QUÂN 6 MẶT</h1>
+        <div class="student-badge">
+            SV: Nguyễn Thành Đạt | MSSV: 241A010864
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">⬅ Quay lại Trang Chủ (Bài 17 - 22)</a>
+        <a href="den-keo-quan.html" class="active">🏮 Đèn Kéo Quân 3D</a>
+    </nav>
+
+    <main>
+        <div class="card-viewer">
+            <h2>Đèn Kéo Quân 6 Hình Ảnh Cá Nhân</h2>
+            <p>Đưa chuột vào một hình bất kỳ trên đèn để dừng lại xem — Rê chuột ra ngoài để đèn tiếp tục quay.</p>
+
+            <div id="statusText" class="status-bar">🔄 Trạng thái: Đèn đang quay...</div>
+
+            <div class="lantern-wrapper">
+                <div class="lantern-top"></div>
+                <div class="scene">
+                    <div class="carousel" id="lanternCarousel">
+                        <div class="lantern-face face-1">
+                            <img src="images/anh1.jpg" alt="Hình 1" onerror="this.src='https://placehold.co/220x280/1e293b/fbbf24?text=Anh+Ca+Nhan+1'">
+                            <div class="face-label">Mặt 1</div>
+                        </div>
+                        <div class="lantern-face face-2">
+                            <img src="images/anh2.jpg" alt="Hình 2" onerror="this.src='https://placehold.co/220x280/1e293b/38bdf8?text=Anh+Ca+Nhan+2'">
+                            <div class="face-label">Mặt 2</div>
+                        </div>
+                        <div class="lantern-face face-3">
+                            <img src="images/anh3.jpg" alt="Hình 3" onerror="this.src='https://placehold.co/220x280/1e293b/4ade80?text=Anh+Ca+Nhan+3'">
+                            <div class="face-label">Mặt 3</div>
+                        </div>
+                        <div class="lantern-face face-4">
+                            <img src="images/anh4.jpg" alt="Hình 4" onerror="this.src='https://placehold.co/220x280/1e293b/f472b6?text=Anh+Ca+Nhan+4'">
+                            <div class="face-label">Mặt 4</div>
+                        </div>
+                        <div class="lantern-face face-5">
+                            <img src="images/anh5.jpg" alt="Hình 5" onerror="this.src='https://placehold.co/220x280/1e293b/a78bfa?text=Anh+Ca+Nhan+5'">
+                            <div class="face-label">Mặt 5</div>
+                        </div>
+                        <div class="lantern-face face-6">
+                            <img src="images/anh6.jpg" alt="Hình 6" onerror="this.src='https://placehold.co/220x280/1e293b/fb923c?text=Anh+Ca+Nhan+6'">
+                            <div class="face-label">Mặt 6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lantern-bottom"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        SV: Nguyễn Thành Đạt — MSSV: 241A010864 | Hiệu ứng JavaScript
+    </footer>
+
+    <script>
+        const carousel = document.getElementById('lanternCarousel');
+        const faces = document.querySelectorAll('.lantern-face');
+        const statusText = document.getElementById('statusText');
+
+        let currentAngle = 0;
+        let isPaused = false;
+        const speed = 0.45;
+
+        function rotateLantern() {
+            if (!isPaused) {
+                currentAngle = (currentAngle + speed) % 360;
+                carousel.style.transform = `rotateY(${currentAngle}deg)`;
+            }
+            requestAnimationFrame(rotateLantern);
+        }
+
+        faces.forEach((face, index) => {
+            face.addEventListener('mouseenter', () => {
+                isPaused = true;
+                statusText.innerText = `⏸️ Trạng thái: Đã dừng tại Mặt ${index + 1} (Rê chuột ra để quay tiếp)`;
+                statusText.classList.add('paused');
+            });
+            face.addEventListener('mouseleave', () => {
+                isPaused = false;
+                statusText.innerText = "🔄 Trạng thái: Đèn đang quay...";
+                statusText.classList.remove('paused');
+            });
+        });
+
+        rotateLantern();
+    </script>
+</body>
+</html>

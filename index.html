@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập 24 - Nguyễn Thành Đạt (241A010864)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>BÀI TẬP 24: WEB CÓ HIỆU ỨNG JAVASCRIPT</h1>
+        <div class="student-badge">
+            SV: Nguyễn Thành Đạt | MSSV: 241A010864
+        </div>
+    </header>
+
+    <nav id="mainMenu">
+        <button class="active" onclick="showExercise(17, this)">Bài 17</button>
+        <button onclick="showExercise(18, this)">Bài 18</button>
+        <button onclick="showExercise(19, this)">Bài 19</button>
+        <button onclick="showExercise(20, this)">Bài 20</button>
+        <button onclick="showExercise(21, this)">Bài 21</button>
+        <button onclick="showExercise(22, this)">Bài 22</button>
+        <a href="den-keo-quan.html" style="background:#dc2626; border-color:#f87171;">🏮 Đèn Kéo Quân (JS)</a>
+    </nav>
+
+    <main>
+        <div class="card-viewer">
+            <h2 id="exTitle">Kết quả Bài tập 17</h2>
+            <p id="exDesc">Domain Name & Kiểm tra DNS (nslookup).</p>
+            <a id="exPageLink" class="open-link" href="bai17-dns/index.html" target="_blank">🔗 Mở trang nhánh Bài tập 17</a>
+            <div>
+                <img id="exImage" class="result-frame" src="images/bt17.png" alt="Kết quả bài tập"
+                     onerror="this.src='https://placehold.co/850x440/1e293b/fbbf24?text=Anh+Ket+Qua+Bai+Tap+' + currentEx">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        SV: Nguyễn Thành Đạt — MSSV: 241A010864 | Deploy trên Netlify
+    </footer>
+
+    <script>
+        let currentEx = 17;
+
+        const exerciseData = {
+            17: { title: "Kết quả Bài tập 17", desc: "Domain Name & Kiểm tra DNS (nslookup).", img: "images/bt17.png", link: "bai17-dns/index.html", label: "🔗 Mở trang nhánh Bài tập 17" },
+            18: { title: "Kết quả Bài tập 18", desc: "Upload Website qua giao thức FTP/SFTP (FileZilla) - Trang CV cá nhân.", img: "images/bt18.png", link: "bai18-ftp-cv/cv.html", label: "🔗 Mở trang nhánh Bài tập 18 (CV)" },
+            19: { title: "Kết quả Bài tập 19", desc: "Deploy Website Portfolio 3 trang lên GitHub Pages.", img: "images/bt19.png", link: "bai19-portfolio/index.html", label: "🔗 Mở trang nhánh Bài tập 19 (Portfolio)" },
+            20: { title: "Kết quả Bài tập 20", desc: "Hình ảnh kết quả thực hành Bài tập 20.", img: "images/bt20.png", link: "den-keo-quan.html", label: "🔗 Xem trang Đèn Kéo Quân" },
+            21: { title: "Kết quả Bài tập 21", desc: "Public website trên 4 nền tảng miễn phí (Chương 6 - Bài 1 đến 4).", img: "images/bt21.png", link: "bai21-4-nen-tang/index.html", label: "🔗 Mở trang nhánh Bài tập 21 (4 Nền tảng)" },
+            22: { title: "Kết quả Bài tập 22", desc: "Chương 6 - Bài thực hành số 8 (có hình ảnh cá nhân).", img: "images/bt22.png", link: "bai22-chuong6-bai8/index.html", label: "🔗 Mở trang nhánh Bài tập 22 (Bài số 8)" }
+        };
+
+        function showExercise(num, btnElement) {
+            currentEx = num;
+            document.querySelectorAll('#mainMenu button').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            const data = exerciseData[num];
+            document.getElementById('exTitle').innerText = data.title;
+            document.getElementById('exDesc').innerText = data.desc;
+            document.getElementById('exImage').src = data.img;
+            const linkEl = document.getElementById('exPageLink');
+            linkEl.href = data.link;
+            linkEl.innerText = data.label;
+        }
+    </script>
+</body>
+</html>
